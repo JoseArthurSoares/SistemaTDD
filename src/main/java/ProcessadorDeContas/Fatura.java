@@ -1,12 +1,15 @@
 package ProcessadorDeContas;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Fatura {
     private String status;
     private double valor;
     private String cliente;
-    private String data;
+    private LocalDate data;
 
-    public Fatura(String data, double valor, String cliente) {
+    public Fatura(LocalDate data, double valor, String cliente) {
         this.data = data;
         this.valor = valor;
         this.cliente = cliente;
@@ -37,11 +40,11 @@ public class Fatura {
         this.cliente = cliente;
     }
 
-    public String getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 }
