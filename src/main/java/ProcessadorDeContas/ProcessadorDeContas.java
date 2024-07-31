@@ -13,10 +13,10 @@ public class ProcessadorDeContas {
 
         for (Conta conta : contas) {
             if (conta.getTipo().equals("BOLETO")) {
-                if (conta.getValor() < 0.01 || conta.getValor() > 5000.00) {
-                    continue;
-                } else if (conta.getData().isAfter(fatura.getData())) {
+                if (conta.getData().isAfter(fatura.getData())) {
                     valorTotal += conta.getValor() * 1.10;
+                } else if (conta.getValor() < 0.01 || conta.getValor() > 5000.00) {
+                    break;
                 } else {
                     valorTotal += conta.getValor();
                 }
