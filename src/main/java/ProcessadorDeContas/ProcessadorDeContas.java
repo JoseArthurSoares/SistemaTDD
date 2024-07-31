@@ -1,5 +1,6 @@
 package ProcessadorDeContas;
 
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class ProcessadorDeContas {
@@ -11,6 +12,12 @@ public class ProcessadorDeContas {
                     fatura.setStatus("PENDENTE");
                     return;
                 } else {
+                    valorTotal += conta.getValor();
+
+                }
+            }
+            if (conta.getTipo().equals("CARTAO_CREDITO")) {
+                if (ChronoUnit.DAYS.between(fatura.getData(), conta.getData()) > 15) {
                     valorTotal += conta.getValor();
                 }
             }
