@@ -3,9 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-import ProcessadorDeContas.Conta;
-import ProcessadorDeContas.Fatura;
-import ProcessadorDeContas.ProcessadorDeContas;
+
 import org.junit.jupiter.api.Test;
 
 class ProcessadorDeContasTest {

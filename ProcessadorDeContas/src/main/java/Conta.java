@@ -1,7 +1,4 @@
-package ProcessadorDeContas;
-
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Conta {
     private String id;
