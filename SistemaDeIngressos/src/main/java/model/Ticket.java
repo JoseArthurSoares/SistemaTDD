@@ -1,4 +1,4 @@
-package main;
+package model;
 
 public class Ticket {
     private long id;
@@ -33,7 +33,7 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket{" +
+        return "model.Ticket{" +
                 "id=" + id +
                 ", type=" + type +
                 ", price=" + price +

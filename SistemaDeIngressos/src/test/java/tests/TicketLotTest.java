@@ -1,8 +1,9 @@
 package tests;
 
-import main.Ticket;
-import main.TicketLot;
-import main.TicketType;
+import model.Ticket;
+import model.TicketLot;
+import model.TicketType;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,13 +19,13 @@ public class TicketLotTest {
 
         TicketLot lot = new TicketLot(price, desconto, totalTickets, totalVIPAvailable);
 
-        assertEquals(id, lot.getId());
-        assertEquals(price, lot.getPrice());
-        assertEquals(desconto, lot.getDiscount());
-        assertEquals(totalVIPAvailable, lot.getTotalVipAvailable());
-        assertEquals((int) (totalTickets - (totalTickets * 0.01 + totalVIPAvailable)), lot.getTotalNormalAvailable());
-        assertEquals((int) (totalTickets * 0.01), lot.getTotalMeiaAvailable());
-        assertTrue(lot.getTicketsSold().isEmpty());
+        Assertions.assertEquals(id, lot.getId());
+        Assertions.assertEquals(price, lot.getPrice());
+        Assertions.assertEquals(desconto, lot.getDiscount());
+        Assertions.assertEquals(totalVIPAvailable, lot.getTotalVipAvailable());
+        Assertions.assertEquals((int) (totalTickets - (totalTickets * 0.01 + totalVIPAvailable)), lot.getTotalNormalAvailable());
+        Assertions.assertEquals((int) (totalTickets * 0.01), lot.getTotalMeiaAvailable());
+        Assertions.assertTrue(lot.getTicketsSold().isEmpty());
     }
 
     @Test
@@ -39,8 +40,8 @@ public class TicketLotTest {
         Ticket ticket = lot.criarTicket(TicketType.NORMAL);
 
         assertNotNull(ticket);
-        assertEquals(TicketType.NORMAL, ticket.getType());
-        assertEquals(price - (price*desconto), ticket.getPrice(), 0.01);
+        Assertions.assertEquals(TicketType.NORMAL, ticket.getType());
+        Assertions.assertEquals(price - (price*desconto), ticket.getPrice(), 0.01);
     }
 
     @Test
@@ -55,8 +56,8 @@ public class TicketLotTest {
         Ticket ticket = lot.criarTicket(TicketType.VIP);
 
         assertNotNull(ticket);
-        assertEquals(TicketType.VIP, ticket.getType());
-        assertEquals(2*price - (price*desconto), ticket.getPrice(), 0.01);
+        Assertions.assertEquals(TicketType.VIP, ticket.getType());
+        Assertions.assertEquals(2*price - (price*desconto), ticket.getPrice(), 0.01);
     }
 
     @Test
@@ -71,8 +72,8 @@ public class TicketLotTest {
         Ticket ticket = lot.criarTicket(TicketType.MEIA);
 
         assertNotNull(ticket);
-        assertEquals(TicketType.MEIA, ticket.getType());
-        assertEquals(price/2, ticket.getPrice(), 0.01);
+        Assertions.assertEquals(TicketType.MEIA, ticket.getType());
+        Assertions.assertEquals(price/2, ticket.getPrice(), 0.01);
     }
 
     @Test
@@ -88,8 +89,8 @@ public class TicketLotTest {
 
         lot.addTicket(ticket);
 
-        assertTrue(lot.getTicketsSold().containsKey(ticket.getId()));
-        assertEquals(ticket.getId(), lot.getTicketsSold().get(ticket.getId()).getId());
+        Assertions.assertTrue(lot.getTicketsSold().containsKey(ticket.getId()));
+        Assertions.assertEquals(ticket.getId(), lot.getTicketsSold().get(ticket.getId()).getId());
     }
 
     @Test
@@ -99,7 +100,7 @@ public class TicketLotTest {
         Ticket ticket = lot.sellTicket(TicketType.NORMAL, 10.0);
 
         assertNotNull(ticket);
-        assertTrue(lot.getTicketsSold().containsKey(ticket.getId()));
+        Assertions.assertTrue(lot.getTicketsSold().containsKey(ticket.getId()));
     }
 
     @Test

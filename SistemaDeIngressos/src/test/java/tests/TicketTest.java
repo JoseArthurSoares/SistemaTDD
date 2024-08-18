@@ -1,7 +1,8 @@
 package tests;
 
-import main.Ticket;
-import main.TicketType;
+import model.Ticket;
+import model.TicketType;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -15,8 +16,8 @@ public class TicketTest {
 
         Ticket ticket = new Ticket(type, price);
 
-        assertEquals(type, ticket.getType());
-        assertEquals(price, ticket.getPrice(), 0.01);
+        Assert.assertEquals(type, ticket.getType());
+        Assert.assertEquals(price, ticket.getPrice(), 0.01);
     }
 
     @Test
@@ -26,8 +27,8 @@ public class TicketTest {
 
         Ticket ticket = new Ticket(type, price);
 
-        assertEquals(type, ticket.getType());
-        assertEquals(price, ticket.getPrice(), 0.01);
+        Assert.assertEquals(type, ticket.getType());
+        Assert.assertEquals(price, ticket.getPrice(), 0.01);
     }
 
     @Test
@@ -37,7 +38,7 @@ public class TicketTest {
 
         Ticket ticket = new Ticket(type, price);
 
-        assertEquals(type, ticket.getType());
-        assertEquals(price, ticket.getPrice(), 0.01);
+        Assert.assertEquals(type, ticket.getType());
+        Assert.assertEquals(price, ticket.getPrice(), 0.01);
     }
 }

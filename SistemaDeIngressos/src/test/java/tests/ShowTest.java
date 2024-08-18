@@ -1,10 +1,11 @@
 package tests;
 
-import main.Show;
-import main.Ticket;
-import main.TicketLot;
-import main.TicketType;
+import model.Show;
+import model.TicketLot;
+import model.TicketType;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
@@ -21,12 +22,12 @@ public class ShowTest {
 
         Show show = new Show(date, false, artist, cache, expenses, vipPercentage);
 
-        assertEquals(date, show.getDate());
-        assertFalse(show.isSpecialDate());
-        assertEquals(artist, show.getArtist());
-        assertEquals(cache, show.getCache());
-        assertEquals(expenses, show.getExpenses());
-        assertEquals(vipPercentage, show.getVipPercentage());
+        Assertions.assertEquals(date, show.getDate());
+        Assertions.assertFalse(show.isSpecialDate());
+        Assertions.assertEquals(artist, show.getArtist());
+        Assertions.assertEquals(cache, show.getCache());
+        Assertions.assertEquals(expenses, show.getExpenses());
+        Assertions.assertEquals(vipPercentage, show.getVipPercentage());
     }
 
     @Test
@@ -40,12 +41,12 @@ public class ShowTest {
         Show show = new Show(date, false, artist, cache, expenses, vipPercentage);
         TicketLot lot = new TicketLot(10.0, 0.15, 100, 50);
 
-        assertEquals(0, show.getLots().size());
+        Assertions.assertEquals(0, show.getLots().size());
 
         show.addLots(lot);
 
-        assertEquals(1, show.getLots().size());
-        assertTrue(show.getLots().containsValue(lot));
+        Assertions.assertEquals(1, show.getLots().size());
+        Assertions.assertTrue(show.getLots().containsValue(lot));
     }
 
     @Test

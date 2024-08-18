@@ -1,4 +1,4 @@
-package main;
+package model;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,6 @@ public class TicketLot {
     private int totalMeiaAvailable;
     private Map<Long, Ticket> ticketsSold = new HashMap<>();
 
-    // Construtor
     public TicketLot(double price, double discount, int totalTickets, int totalVip) {
         this.id = IdGenerator.getNextId();
         this.price = price;
@@ -40,6 +39,8 @@ public class TicketLot {
     public int getTotalVipAvailable() {
         return totalVipAvailable;
     }
+
+    public int getTotalTickets() {return totalTickets;}
 
     public int getTotalNormalAvailable() {
         return totalNormalAvailable;
