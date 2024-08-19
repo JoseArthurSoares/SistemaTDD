@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.Arrays;
 
 
+import model.Conta;
+import model.Fatura;
+import model.ProcessadorDeContas;
 import org.junit.jupiter.api.Test;
 
 class ProcessadorDeContasTest {
